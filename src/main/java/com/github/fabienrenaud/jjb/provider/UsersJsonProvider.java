@@ -6,6 +6,8 @@ import com.dslplatform.json.DslJson;
 import com.dslplatform.json.runtime.Settings;
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.fasterxml.jackson.module.afterburner.AfterburnerModule;
 import com.fasterxml.jackson.module.blackbird.BlackbirdModule;
 import com.github.fabienrenaud.jjb.model.Users;
@@ -33,6 +35,9 @@ public class UsersJsonProvider implements JsonProvider<Users> {
     private final Gson gson = new Gson();
     private final javax.json.stream.JsonGeneratorFactory javaxJsonFactory = javax.json.Json.createGeneratorFactory(null);
     private final ObjectMapper jackson = new ObjectMapper();
+
+    private final ObjectMapper jacksonPrt = new ObjectMapper()
+            .configure(SerializationFeature.INDENT_OUTPUT, true);
     private final ObjectMapper jacksonAfterburner = new ObjectMapper()
             .registerModule(new AfterburnerModule());
     private final ObjectMapper jacksonBlackbird = new ObjectMapper()
@@ -79,6 +84,11 @@ public class UsersJsonProvider implements JsonProvider<Users> {
     @Override
     public ObjectMapper jackson() {
         return jackson;
+    }
+
+    @Override
+    public ObjectMapper jacksonPrt() {
+        return jacksonPrt;
     }
 
     @Override

@@ -19,6 +19,10 @@ public abstract class JsonBench {
         return null;
     }
 
+    public Object jacksonPrt() throws Exception {
+        return null;
+    }
+
     public Object jackson_afterburner() throws Exception {
         return null;
     }

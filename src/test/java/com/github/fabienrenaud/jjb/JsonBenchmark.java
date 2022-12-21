@@ -75,6 +75,12 @@ public abstract class JsonBenchmark<T> {
             test(Library.JACKSON, BENCH.jackson());
         }
     }
+    @Test
+    public void jacksonPrt() throws Exception {
+        for (int i = 0; i < ITERATIONS; i++) {
+            test(Library.JACKSONPRT, BENCH.jacksonPrt());
+        }
+    }
 
     @Test
     public void jackson_afterburner() throws Exception {

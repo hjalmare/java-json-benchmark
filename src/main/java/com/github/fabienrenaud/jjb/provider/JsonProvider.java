@@ -20,6 +20,8 @@ public interface JsonProvider<T> {
 
     ObjectMapper jackson();
 
+    ObjectMapper jacksonPrt();
+
     ObjectMapper jacksonAfterburner();
 
     ObjectMapper jacksonBlackbird();

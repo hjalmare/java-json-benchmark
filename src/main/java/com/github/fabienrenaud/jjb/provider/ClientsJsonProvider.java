@@ -57,6 +57,10 @@ public class ClientsJsonProvider implements JsonProvider<Clients> {
     private final ObjectMapper jackson = new ObjectMapper()
             .registerModule(new JavaTimeModule())
             .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
+
+    private final ObjectMapper jacksonPrt = new ObjectMapper()
+            .registerModule(new JavaTimeModule())
+            .configure(SerializationFeature.INDENT_OUTPUT, true);
     private final ObjectMapper jacksonAfterburner = new ObjectMapper()
             .registerModule(new AfterburnerModule())
             .registerModule(new JavaTimeModule())
@@ -189,6 +193,11 @@ public class ClientsJsonProvider implements JsonProvider<Clients> {
     @Override
     public ObjectMapper jackson() {
         return jackson;
+    }
+
+    @Override
+    public ObjectMapper jacksonPrt() {
+        return jacksonPrt;
     }
 
     @Override

@@ -62,6 +62,14 @@ public class Deserialization extends JsonBench {
 
     @Benchmark
     @Override
+    public Object jacksonPrt() throws IOException {
+        try (JsonParser jParser = JSON_SOURCE().provider().jacksonFactory().createParser(JSON_SOURCE().nextByteArray())) {
+            return JSON_SOURCE().streamDeserializer().jackson(jParser);
+        }
+    }
+
+    @Benchmark
+    @Override
     public Object avajejsonb_jackson() throws IOException {
         return JSON_SOURCE().provider().avajeJsonb_jackson().fromJson(JSON_SOURCE().nextByteArray());
     }

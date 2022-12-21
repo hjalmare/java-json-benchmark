@@ -9,6 +9,7 @@ public enum BenchSupport {
     USERS(
         new Libapi(Library.GSON, Api.DATABIND, Api.STREAM),
         new Libapi(Library.JACKSON, Api.DATABIND, Api.STREAM),
+        new Libapi(Library.JACKSONPRT, Api.DATABIND, Api.STREAM),
         new Libapi(Library.JACKSON_AFTERBURNER, Api.DATABIND),
         new Libapi(Library.JACKSON_BLACKBIRD, Api.DATABIND),
         new Libapi(Library.ORGJSON, Api.STREAM),
@@ -41,6 +42,7 @@ public enum BenchSupport {
     CLIENTS(
             new Libapi(Library.GSON, Api.DATABIND),
             new Libapi(Library.JACKSON, Api.DATABIND),
+            new Libapi(Library.JACKSONPRT, Api.DATABIND),
             new Libapi(Library.JACKSON_AFTERBURNER, Api.DATABIND),
             new Libapi(Library.JACKSON_BLACKBIRD, Api.DATABIND),
             new Libapi(Library.ORGJSON),
